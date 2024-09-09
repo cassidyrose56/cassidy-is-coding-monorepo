@@ -1,0 +1,3 @@
+{
+  "rewrites": [{ "source": "/toptentastes", "destination": "/apps/top-ten-tastes/index.html" }]
+}
