@@ -1,18 +1,86 @@
-import { c as create_ssr_component, v as validate_component, o as onDestroy, d as spread, f as escape_object, h as createEventDispatcher, i as add_attribute, e as escape } from "../../chunks/ssr.js";
-import TextPlugin, { gsap } from "gsap";
-import pkg from "gsap-trial/dist/MorphSVGPlugin.js";
+import { c as create_ssr_component, v as validate_component, d as add_attribute, e as escape, o as onDestroy, f as spread, h as escape_object, i as createEventDispatcher } from "../../chunks/ssr.js";
+import { gsap } from "gsap";
 /* empty css               */
-const ThemeSwitch = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<div><input ${"checked"} type="checkbox" id="theme-toggle"> <label for="theme-toggle"></label></div>`;
-});
 const Name = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  const { MorphSVGPlugin } = pkg;
-  gsap.registerPlugin(MorphSVGPlugin);
-  return `<h1 class="font-June text-7xl" data-svelte-h="svelte-cd5e1y">CassidyIsCoding</h1> `;
+  return `<img class="md:w-1/2 w-2/3 pt-10" src="/svg/Name.png" alt="Name">`;
 });
-const Title_toggle = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  gsap.registerPlugin(TextPlugin);
-  return `<div class="flex items-center justify-center md:col-span-7 md:row-span-3 bg-transparent rounded-lg p-4">${validate_component(ThemeSwitch, "ThemeSwitch").$$render($$result, {}, {}, {})} ${validate_component(Name, "Name").$$render($$result, {}, {}, {})}</div>`;
+const Header = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<div class="flex items-center justify-center md:col-span-7 md:row-span-3 bg-transparent rounded-lg pt-4">${validate_component(Name, "Name").$$render($$result, {}, {}, {})}</div>`;
+});
+const Desc = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<div id="desc-tile" class="md:col-span-6 md:row-span-4 md:row-start-1 md:col-start-1 col-span-3 relative group" data-svelte-h="svelte-78np2w"><div class="absolute inset-0 bg-quaternary-100 dark:bg-primary-900 rounded-lg blur-sm opacity-75 group-hover:bg-opacity-100 group-hover:blur-md group-hover:duration-200 transition duration-1000"></div> <div id=" desc-tile" class="relative flex justify-center items-center h-full bg-quaternary-100 dark:bg-primary-900 shadow-md rounded-lg p-4"><p class="font-Hatch font-light text-2xl md:leading-loose leading-relaxed text-center">I love making <span class="font-semibold">fun, accessible, and exciting</span> applications that are easily usable for everyone.</p></div></div>`;
+});
+const Skillz = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<div id="skillz-tile" class="md:col-span-4 md:row-span-6 md:row-start-5 col-span-3 md:col-start-1 relative group" data-svelte-h="svelte-17kklmj"><div class="absolute inset-0 bg-tertiary-100 dark:bg-quaternary-700 rounded-lg blur-sm opacity-75 group-hover:bg-opacity-100 group-hover:blur-md group-hover:duration-200 transition duration-1000"></div> <div class="relative flex flex-col h-full gap-3 pt-10 bg-tertiary-100 dark:bg-quaternary-700 min-h-fit shadow-md rounded-lg p-6"><h2 class="font-June text-4xl">Skills</h2> <ul class="font-Hatch font-light text-xl flex flex-col gap-5"><li>TypeScript</li> <li>React</li> <li>Web Accessibility</li> <li>Tailwind CSS</li> <li>UX/UI Design</li> <li>REST APIs</li> <li>Node.js</li> <li>Responsive Web Design</li> <li>Jotai</li> <li>Mobile-First Development</li> <li>GSAP</li> <li>Framer Motion</li> <li>Atomic Design System</li> <li>GraphQL</li> <li>Svelte</li></ul></div></div>`;
+});
+const WorkSection = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { link } = $$props;
+  let { svg } = $$props;
+  let { altText } = $$props;
+  let { title } = $$props;
+  let { date } = $$props;
+  let { description } = $$props;
+  if ($$props.link === void 0 && $$bindings.link && link !== void 0) $$bindings.link(link);
+  if ($$props.svg === void 0 && $$bindings.svg && svg !== void 0) $$bindings.svg(svg);
+  if ($$props.altText === void 0 && $$bindings.altText && altText !== void 0) $$bindings.altText(altText);
+  if ($$props.title === void 0 && $$bindings.title && title !== void 0) $$bindings.title(title);
+  if ($$props.date === void 0 && $$bindings.date && date !== void 0) $$bindings.date(date);
+  if ($$props.description === void 0 && $$bindings.description && description !== void 0) $$bindings.description(description);
+  return `<div class="flex gap-6"><a${add_attribute("href", link, 0)} target="_blank" tabindex="-1"><div class="h-16 w-16 bg-primary-700 dark:bg-secondary-500 flex items-center justify-center rounded-md shadow-light-icon shadow-primary-500 dark:shadow-secondary-700"><img${add_attribute("src", svg, 0)}${add_attribute("alt", altText, 0)} class="h-8 w-auto"></div></a> <div class="flex flex-col gap-2"><div class="flex flex-col"><a${add_attribute("href", link, 0)} target="_blank"><h4 class="font-Hatch font-semibold text-xl tracking-wide">${escape(title)}</h4></a> <p class="uppercase font-Hatch text-sm">${escape(date)}</p></div> <p class="font-Hatch font-light">${escape(description)}</p></div></div>`;
+});
+const Work = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<div id="work-tile" class="md:col-span-8 md:col-start-5 col-span-3 md:row-span-6 relative group h-full"><div class="absolute inset-0 bg-primary-300 dark:bg-secondary-700 rounded-lg blur-sm opacity-75 group-hover:bg-opacity-100 group-hover:blur-md group-hover:duration-200 transition duration-1000"></div> <div class="relative h-full flex flex-col md:gap-6 gap-4 md:p-12 p-6 bg-primary-300 dark:bg-secondary-700 shadow-md rounded-lg"><h2 class="font-June md:text-6xl text-4xl" data-svelte-h="svelte-6k8ji1">Work</h2> <div class="flex flex-col md:gap-6 gap-3"><h3 class="font-Hatch md:text-3xl text-2xl font-bold" data-svelte-h="svelte-g0njy1">Professional Experience</h3> ${validate_component(WorkSection, "WorkSection").$$render(
+    $$result,
+    {
+      link: "https://lifecloud.com/",
+      svg: "/svg/LifeCloudLogo.svg",
+      altText: "LifeCloud Logo",
+      title: "LifeCloud",
+      date: "March 2023 - Present",
+      description: "A platform to organize your important documents and financial assets to make life easier for your loved ones when you pass."
+    },
+    {},
+    {}
+  )} ${validate_component(WorkSection, "WorkSection").$$render(
+    $$result,
+    {
+      link: "https://www.intern.house/",
+      svg: "/svg/InternHouseLogo.svg",
+      altText: "Intern.House Logo",
+      title: "Intern.House",
+      date: "April 2022 - March 2023",
+      description: "A startup specializing in helping tech interns find flexible, shared housing in Austin."
+    },
+    {},
+    {}
+  )}</div> <div class="flex flex-col md:gap-6 gap-3"><h3 class="font-Hatch md:text-3xl text-2xl font-bold" data-svelte-h="svelte-1x9wtiu">Volunteering</h3> ${validate_component(WorkSection, "WorkSection").$$render(
+    $$result,
+    {
+      link: "https://foundcom.org/home-for-the-holidays/",
+      svg: "/svg/FoundcomLogo.svg",
+      altText: "FoundCom Logo",
+      title: "Foundation Communities",
+      date: "August 2023 - Present",
+      description: "A public-facing app to help nonprofit with their Home for the Holidays project, connecting families in need with sponsors in the community for holiday gifts."
+    },
+    {},
+    {}
+  )}</div> <div class="flex flex-col md:gap-6 gap-3"><h3 class="font-Hatch md:text-3xl text-2xl font-bold" data-svelte-h="svelte-1nz89fq">Projects</h3> ${validate_component(WorkSection, "WorkSection").$$render(
+    $$result,
+    {
+      link: "https://www.lightql.com/",
+      svg: "/svg/LightQLLogo.svg",
+      altText: "LightQL Logo",
+      title: "LightQL",
+      date: "2022",
+      description: "An Open Source Project composed of a lightweight client-side caching library for GraphQL, similar to Apollo Client."
+    },
+    {},
+    {}
+  )}</div></div></div>`;
+});
+const Contact = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<div id="contact-tile" class="md:col-span-12 md:row-span-4 col-span-3 relative group rounded-lg" data-svelte-h="svelte-4v5o4r"><div class="absolute inset-0 bg-secondary-300 dark:bg-primary-900 rounded-lg blur-sm opacity-75 group-hover:bg-opacity-100 group-hover:blur-md group-hover:duration-200 transition duration-1000"></div> <div class="relative h-fit p-6 bg-secondary-300 dark:bg-primary-900 rounded-lg shadow-md flex flex-col gap-2"><h2 id="contact-title" class="font-June md:text-5xl text-4xl text-center">Hey there!</h2> <p class="font-Hatch font-light text-xl text-center">I would love to connect! Feel free to <a class="duration-150 underline font-medium hover:font-semibold" href="mailto:cassidyrose56@gmail.com">send me an email</a> at cassidyrose56@gmail.com, or shoot me a message on social media.</p></div></div>`;
 });
 const matchIconName = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 const stringToIcon = (value, validate, allowSimpleName, provider = "") => {
@@ -132,7 +200,7 @@ function getIconsTree(data, names) {
     }
     return resolved[name];
   }
-  (names || Object.keys(icons).concat(Object.keys(aliases))).forEach(resolve);
+  Object.keys(icons).concat(Object.keys(aliases)).forEach(resolve);
   return resolved;
 }
 function internalGetIconData(data, name, tree) {
@@ -255,7 +323,7 @@ function addIconToStorage(storage2, name, icon) {
 }
 let simpleNames = false;
 function allowSimpleNames(allow) {
-  if (typeof allow === "boolean") {
+  {
     simpleNames = allow;
   }
   return simpleNames;
@@ -524,9 +592,6 @@ const storage = /* @__PURE__ */ Object.create(null);
 function setAPIModule(provider, item) {
   storage[provider] = item;
 }
-function getAPIModule(provider) {
-  return storage[provider] || storage[""];
-}
 function createAPIConfig(source) {
   let resources;
   if (typeof source.resources === "string") {
@@ -717,402 +782,12 @@ const fetchAPIModule = {
   prepare,
   send
 };
-function sortIcons(icons) {
-  const result = {
-    loaded: [],
-    missing: [],
-    pending: []
-  };
-  const storage2 = /* @__PURE__ */ Object.create(null);
-  icons.sort((a, b) => {
-    if (a.provider !== b.provider) {
-      return a.provider.localeCompare(b.provider);
-    }
-    if (a.prefix !== b.prefix) {
-      return a.prefix.localeCompare(b.prefix);
-    }
-    return a.name.localeCompare(b.name);
-  });
-  let lastIcon = {
-    provider: "",
-    prefix: "",
-    name: ""
-  };
-  icons.forEach((icon) => {
-    if (lastIcon.name === icon.name && lastIcon.prefix === icon.prefix && lastIcon.provider === icon.provider) {
-      return;
-    }
-    lastIcon = icon;
-    const provider = icon.provider;
-    const prefix = icon.prefix;
-    const name = icon.name;
-    const providerStorage = storage2[provider] || (storage2[provider] = /* @__PURE__ */ Object.create(null));
-    const localStorage = providerStorage[prefix] || (providerStorage[prefix] = getStorage(provider, prefix));
-    let list;
-    if (name in localStorage.icons) {
-      list = result.loaded;
-    } else if (prefix === "" || localStorage.missing.has(name)) {
-      list = result.missing;
-    } else {
-      list = result.pending;
-    }
-    const item = {
-      provider,
-      prefix,
-      name
-    };
-    list.push(item);
-  });
-  return result;
-}
-function removeCallback(storages, id) {
-  storages.forEach((storage2) => {
-    const items = storage2.loaderCallbacks;
-    if (items) {
-      storage2.loaderCallbacks = items.filter((row) => row.id !== id);
-    }
-  });
-}
-function updateCallbacks(storage2) {
-  if (!storage2.pendingCallbacksFlag) {
-    storage2.pendingCallbacksFlag = true;
-    setTimeout(() => {
-      storage2.pendingCallbacksFlag = false;
-      const items = storage2.loaderCallbacks ? storage2.loaderCallbacks.slice(0) : [];
-      if (!items.length) {
-        return;
-      }
-      let hasPending = false;
-      const provider = storage2.provider;
-      const prefix = storage2.prefix;
-      items.forEach((item) => {
-        const icons = item.icons;
-        const oldLength = icons.pending.length;
-        icons.pending = icons.pending.filter((icon) => {
-          if (icon.prefix !== prefix) {
-            return true;
-          }
-          const name = icon.name;
-          if (storage2.icons[name]) {
-            icons.loaded.push({
-              provider,
-              prefix,
-              name
-            });
-          } else if (storage2.missing.has(name)) {
-            icons.missing.push({
-              provider,
-              prefix,
-              name
-            });
-          } else {
-            hasPending = true;
-            return true;
-          }
-          return false;
-        });
-        if (icons.pending.length !== oldLength) {
-          if (!hasPending) {
-            removeCallback([storage2], item.id);
-          }
-          item.callback(
-            icons.loaded.slice(0),
-            icons.missing.slice(0),
-            icons.pending.slice(0),
-            item.abort
-          );
-        }
-      });
-    });
-  }
-}
-let idCounter = 0;
-function storeCallback(callback, icons, pendingSources) {
-  const id = idCounter++;
-  const abort = removeCallback.bind(null, pendingSources, id);
-  if (!icons.pending.length) {
-    return abort;
-  }
-  const item = {
-    id,
-    icons,
-    callback,
-    abort
-  };
-  pendingSources.forEach((storage2) => {
-    (storage2.loaderCallbacks || (storage2.loaderCallbacks = [])).push(item);
-  });
-  return abort;
-}
-function listToIcons(list, validate = true, simpleNames2 = false) {
-  const result = [];
-  list.forEach((item) => {
-    const icon = typeof item === "string" ? stringToIcon(item, validate, simpleNames2) : item;
-    if (icon) {
-      result.push(icon);
-    }
-  });
-  return result;
-}
-var defaultConfig = {
-  resources: [],
-  index: 0,
-  timeout: 2e3,
-  rotate: 750,
-  random: false,
-  dataAfterTimeout: false
-};
-function sendQuery(config, payload, query, done) {
-  const resourcesCount = config.resources.length;
-  const startIndex = config.random ? Math.floor(Math.random() * resourcesCount) : config.index;
-  let resources;
-  if (config.random) {
-    let list = config.resources.slice(0);
-    resources = [];
-    while (list.length > 1) {
-      const nextIndex = Math.floor(Math.random() * list.length);
-      resources.push(list[nextIndex]);
-      list = list.slice(0, nextIndex).concat(list.slice(nextIndex + 1));
-    }
-    resources = resources.concat(list);
-  } else {
-    resources = config.resources.slice(startIndex).concat(config.resources.slice(0, startIndex));
-  }
-  const startTime = Date.now();
-  let status = "pending";
-  let queriesSent = 0;
-  let lastError;
-  let timer = null;
-  let queue = [];
-  let doneCallbacks = [];
-  if (typeof done === "function") {
-    doneCallbacks.push(done);
-  }
-  function resetTimer() {
-    if (timer) {
-      clearTimeout(timer);
-      timer = null;
-    }
-  }
-  function abort() {
-    if (status === "pending") {
-      status = "aborted";
-    }
-    resetTimer();
-    queue.forEach((item) => {
-      if (item.status === "pending") {
-        item.status = "aborted";
-      }
-    });
-    queue = [];
-  }
-  function subscribe(callback, overwrite) {
-    if (overwrite) {
-      doneCallbacks = [];
-    }
-    if (typeof callback === "function") {
-      doneCallbacks.push(callback);
-    }
-  }
-  function getQueryStatus() {
-    return {
-      startTime,
-      payload,
-      status,
-      queriesSent,
-      queriesPending: queue.length,
-      subscribe,
-      abort
-    };
-  }
-  function failQuery() {
-    status = "failed";
-    doneCallbacks.forEach((callback) => {
-      callback(void 0, lastError);
-    });
-  }
-  function clearQueue() {
-    queue.forEach((item) => {
-      if (item.status === "pending") {
-        item.status = "aborted";
-      }
-    });
-    queue = [];
-  }
-  function moduleResponse(item, response, data) {
-    const isError = response !== "success";
-    queue = queue.filter((queued) => queued !== item);
-    switch (status) {
-      case "pending":
-        break;
-      case "failed":
-        if (isError || !config.dataAfterTimeout) {
-          return;
-        }
-        break;
-      default:
-        return;
-    }
-    if (response === "abort") {
-      lastError = data;
-      failQuery();
-      return;
-    }
-    if (isError) {
-      lastError = data;
-      if (!queue.length) {
-        if (!resources.length) {
-          failQuery();
-        } else {
-          execNext();
-        }
-      }
-      return;
-    }
-    resetTimer();
-    clearQueue();
-    if (!config.random) {
-      const index = config.resources.indexOf(item.resource);
-      if (index !== -1 && index !== config.index) {
-        config.index = index;
-      }
-    }
-    status = "completed";
-    doneCallbacks.forEach((callback) => {
-      callback(data);
-    });
-  }
-  function execNext() {
-    if (status !== "pending") {
-      return;
-    }
-    resetTimer();
-    const resource = resources.shift();
-    if (resource === void 0) {
-      if (queue.length) {
-        timer = setTimeout(() => {
-          resetTimer();
-          if (status === "pending") {
-            clearQueue();
-            failQuery();
-          }
-        }, config.timeout);
-        return;
-      }
-      failQuery();
-      return;
-    }
-    const item = {
-      status: "pending",
-      resource,
-      callback: (status2, data) => {
-        moduleResponse(item, status2, data);
-      }
-    };
-    queue.push(item);
-    queriesSent++;
-    timer = setTimeout(execNext, config.rotate);
-    query(resource, payload, item.callback);
-  }
-  setTimeout(execNext);
-  return getQueryStatus;
-}
-function initRedundancy(cfg) {
-  const config = {
-    ...defaultConfig,
-    ...cfg
-  };
-  let queries = [];
-  function cleanup() {
-    queries = queries.filter((item) => item().status === "pending");
-  }
-  function query(payload, queryCallback, doneCallback) {
-    const query2 = sendQuery(
-      config,
-      payload,
-      queryCallback,
-      (data, error) => {
-        cleanup();
-        if (doneCallback) {
-          doneCallback(data, error);
-        }
-      }
-    );
-    queries.push(query2);
-    return query2;
-  }
-  function find(callback) {
-    return queries.find((value) => {
-      return callback(value);
-    }) || null;
-  }
-  const instance = {
-    query,
-    find,
-    setIndex: (index) => {
-      config.index = index;
-    },
-    getIndex: () => config.index,
-    cleanup
-  };
-  return instance;
-}
-function emptyCallback$1() {
-}
-const redundancyCache = /* @__PURE__ */ Object.create(null);
-function getRedundancyCache(provider) {
-  if (!redundancyCache[provider]) {
-    const config = getAPIConfig(provider);
-    if (!config) {
-      return;
-    }
-    const redundancy = initRedundancy(config);
-    const cachedReundancy = {
-      config,
-      redundancy
-    };
-    redundancyCache[provider] = cachedReundancy;
-  }
-  return redundancyCache[provider];
-}
-function sendAPIQuery(target, query, callback) {
-  let redundancy;
-  let send2;
-  if (typeof target === "string") {
-    const api = getAPIModule(target);
-    if (!api) {
-      callback(void 0, 424);
-      return emptyCallback$1;
-    }
-    send2 = api.send;
-    const cached = getRedundancyCache(target);
-    if (cached) {
-      redundancy = cached.redundancy;
-    }
-  } else {
-    const config = createAPIConfig(target);
-    if (config) {
-      redundancy = initRedundancy(config);
-      const moduleKey = target.resources ? target.resources[0] : "";
-      const api = getAPIModule(moduleKey);
-      if (api) {
-        send2 = api.send;
-      }
-    }
-  }
-  if (!redundancy || !send2) {
-    callback(void 0, 424);
-    return emptyCallback$1;
-  }
-  return redundancy.query(query, send2, callback)().abort;
-}
 const browserCacheVersion = "iconify2";
 const browserCachePrefix = "iconify";
 const browserCacheCountKey = browserCachePrefix + "-count";
 const browserCacheVersionKey = browserCachePrefix + "-version";
 const browserStorageHour = 36e5;
 const browserStorageCacheExpiration = 168;
-const browserStorageLimit = 50;
 function getStoredItem(func, key) {
   try {
     return func.getItem(key);
@@ -1230,184 +905,6 @@ function initBrowserStorage() {
     });
   }
 }
-function updateLastModified(storage2, lastModified) {
-  const lastValue = storage2.lastModifiedCached;
-  if (
-    // Matches or newer
-    lastValue && lastValue >= lastModified
-  ) {
-    return lastValue === lastModified;
-  }
-  storage2.lastModifiedCached = lastModified;
-  if (lastValue) {
-    for (const key in browserStorageConfig) {
-      iterateBrowserStorage(key, (item) => {
-        const iconSet = item.data;
-        return item.provider !== storage2.provider || iconSet.prefix !== storage2.prefix || iconSet.lastModified === lastModified;
-      });
-    }
-  }
-  return true;
-}
-function storeInBrowserStorage(storage2, data) {
-  if (!browserStorageStatus) {
-    initBrowserStorage();
-  }
-  function store(key) {
-    let func;
-    if (!browserStorageConfig[key] || !(func = getBrowserStorage(key))) {
-      return;
-    }
-    const set = browserStorageEmptyItems[key];
-    let index;
-    if (set.size) {
-      set.delete(index = Array.from(set).shift());
-    } else {
-      index = getBrowserStorageItemsCount(func);
-      if (index >= browserStorageLimit || !setBrowserStorageItemsCount(func, index + 1)) {
-        return;
-      }
-    }
-    const item = {
-      cached: Math.floor(Date.now() / browserStorageHour),
-      provider: storage2.provider,
-      data
-    };
-    return setStoredItem(
-      func,
-      browserCachePrefix + index.toString(),
-      JSON.stringify(item)
-    );
-  }
-  if (data.lastModified && !updateLastModified(storage2, data.lastModified)) {
-    return;
-  }
-  if (!Object.keys(data.icons).length) {
-    return;
-  }
-  if (data.not_found) {
-    data = Object.assign({}, data);
-    delete data.not_found;
-  }
-  if (!store("local")) {
-    store("session");
-  }
-}
-function emptyCallback() {
-}
-function loadedNewIcons(storage2) {
-  if (!storage2.iconsLoaderFlag) {
-    storage2.iconsLoaderFlag = true;
-    setTimeout(() => {
-      storage2.iconsLoaderFlag = false;
-      updateCallbacks(storage2);
-    });
-  }
-}
-function loadNewIcons(storage2, icons) {
-  if (!storage2.iconsToLoad) {
-    storage2.iconsToLoad = icons;
-  } else {
-    storage2.iconsToLoad = storage2.iconsToLoad.concat(icons).sort();
-  }
-  if (!storage2.iconsQueueFlag) {
-    storage2.iconsQueueFlag = true;
-    setTimeout(() => {
-      storage2.iconsQueueFlag = false;
-      const { provider, prefix } = storage2;
-      const icons2 = storage2.iconsToLoad;
-      delete storage2.iconsToLoad;
-      let api;
-      if (!icons2 || !(api = getAPIModule(provider))) {
-        return;
-      }
-      const params = api.prepare(provider, prefix, icons2);
-      params.forEach((item) => {
-        sendAPIQuery(provider, item, (data) => {
-          if (typeof data !== "object") {
-            item.icons.forEach((name) => {
-              storage2.missing.add(name);
-            });
-          } else {
-            try {
-              const parsed = addIconSet(
-                storage2,
-                data
-              );
-              if (!parsed.length) {
-                return;
-              }
-              const pending = storage2.pendingIcons;
-              if (pending) {
-                parsed.forEach((name) => {
-                  pending.delete(name);
-                });
-              }
-              storeInBrowserStorage(storage2, data);
-            } catch (err) {
-              console.error(err);
-            }
-          }
-          loadedNewIcons(storage2);
-        });
-      });
-    });
-  }
-}
-const loadIcons = (icons, callback) => {
-  const cleanedIcons = listToIcons(icons, true, allowSimpleNames());
-  const sortedIcons = sortIcons(cleanedIcons);
-  if (!sortedIcons.pending.length) {
-    let callCallback = true;
-    if (callback) {
-      setTimeout(() => {
-        if (callCallback) {
-          callback(
-            sortedIcons.loaded,
-            sortedIcons.missing,
-            sortedIcons.pending,
-            emptyCallback
-          );
-        }
-      });
-    }
-    return () => {
-      callCallback = false;
-    };
-  }
-  const newIcons = /* @__PURE__ */ Object.create(null);
-  const sources = [];
-  let lastProvider, lastPrefix;
-  sortedIcons.pending.forEach((icon) => {
-    const { provider, prefix } = icon;
-    if (prefix === lastPrefix && provider === lastProvider) {
-      return;
-    }
-    lastProvider = provider;
-    lastPrefix = prefix;
-    sources.push(getStorage(provider, prefix));
-    const providerNewIcons = newIcons[provider] || (newIcons[provider] = /* @__PURE__ */ Object.create(null));
-    if (!providerNewIcons[prefix]) {
-      providerNewIcons[prefix] = [];
-    }
-  });
-  sortedIcons.pending.forEach((icon) => {
-    const { provider, prefix, name } = icon;
-    const storage2 = getStorage(provider, prefix);
-    const pendingQueue = storage2.pendingIcons || (storage2.pendingIcons = /* @__PURE__ */ new Set());
-    if (!pendingQueue.has(name)) {
-      pendingQueue.add(name);
-      newIcons[provider][prefix].push(name);
-    }
-  });
-  sources.forEach((storage2) => {
-    const { provider, prefix } = storage2;
-    if (newIcons[provider][prefix].length) {
-      loadNewIcons(storage2, newIcons[provider][prefix]);
-    }
-  });
-  return callback ? storeCallback(callback, sortedIcons, sources) : emptyCallback;
-};
 function mergeCustomisations(defaults, item) {
   const result = {
     ...defaults
@@ -1675,35 +1172,18 @@ if (typeof document !== "undefined" && typeof window !== "undefined") {
   }
 }
 function checkIconState(icon, state, mounted, callback, onload) {
-  function abortLoading() {
-    if (state.loading) {
-      state.loading.abort();
-      state.loading = null;
-    }
-  }
   if (typeof icon === "object" && icon !== null && typeof icon.body === "string") {
     state.name = "";
-    abortLoading();
     return { data: { ...defaultIconProps, ...icon } };
   }
   let iconName;
   if (typeof icon !== "string" || (iconName = stringToIcon(icon, false, true)) === null) {
-    abortLoading();
     return null;
   }
   const data = getIconData(iconName);
   if (!data) {
-    if (mounted && (!state.loading || state.loading.name !== icon)) {
-      abortLoading();
-      state.name = "";
-      state.loading = {
-        name: icon,
-        abort: loadIcons([iconName], callback)
-      };
-    }
     return null;
   }
-  abortLoading();
   if (state.name !== icon) {
     state.name = icon;
     if (onload && !state.destroyed) {
@@ -1747,10 +1227,6 @@ const Icon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   }
   onDestroy(() => {
     state.destroyed = true;
-    if (state.loading) {
-      state.loading.abort();
-      state.loading = null;
-    }
   });
   {
     {
@@ -1763,99 +1239,53 @@ const Icon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   }
   return `${data ? `${data.svg ? `<svg${spread([escape_object(data.attributes)], {})}><!-- HTML_TAG_START -->${data.body}<!-- HTML_TAG_END --></svg>` : `<span${spread([escape_object(data.attributes)], {})}></span>`}` : ``}`;
 });
-const Sm = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<div id="sm-tile" class="flex gap-2 justify-around items-center lg:col-span-2 md:col-span-3 h-fit w-fit md:w-auto lg:col-start-11 md:col-start-10 md:row-span-1 md:shadow-md rounded-lg md:p-4 absolute right-[32px] md:static"><a href="https://github.com/cassidyrose56" target="_blank">${validate_component(Icon, "Icon").$$render(
+const Github = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<div class="w-full relative group md:col-span-2 col-start-1 md:row-start-1 md:col-start-7 md:row-span-2"><a href="https://github.com/cassidyrose56" target="_blank" class="block absolute inset-0 z-10" data-svelte-h="svelte-rq335s"><span class="sr-only">Link to Cassidy&#39;s Github</span></a> <div class="relative flex bg-myBlack dark:bg-myWhite justify-around items-center h-full md:shadow-md rounded-lg md:p-4"><div class="absolute inset-0 bg-myBlack dark:bg-myWhite rounded-lg blur-sm opacity-75 group-hover:bg-opacity-100 group-hover:blur-md group-hover:duration-200 transition duration-1000"></div> ${validate_component(Icon, "Icon").$$render(
     $$result,
     {
       icon: "bxl:github",
-      class: "md:text-myWhite text-4xl"
-    },
-    {},
-    {}
-  )}</a> <a href="https://www.linkedin.com/in/cassidy-r-johnson/">${validate_component(Icon, "Icon").$$render(
-    $$result,
-    {
-      icon: "bxl:linkedin-square",
-      class: "md:text-myWhite text-4xl"
-    },
-    {},
-    {}
-  )}</a> <a href="https://medium.com/@cassidyrose56/">${validate_component(Icon, "Icon").$$render(
-    $$result,
-    {
-      icon: "bxl:medium",
-      class: "md:text-myWhite text-4xl"
-    },
-    {},
-    {}
-  )}</a></div>`;
-});
-const Desc = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<div id="desc-tile" class="md:col-span-5 md:row-span-4 bg-tertiary-100 dark:bg-tertiary-700 shadow-md rounded-lg p-4" data-svelte-h="svelte-inzwgy"><p class="font-Hatch font-light text-2xl md:leading-loose leading-relaxed text-center">I love making <span class="font-semibold">fun, accessible, and exciting</span> applications that are easily usable for everyone.</p></div>`;
-});
-const Skillz = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<div id="skillz-tile" class="flex flex-col gap-3 justify-center bg-tertiary-300 dark:bg-tertiary-700 md:col-span-3 md:row-span-7 md:row-start-6 min-h-fit shadow-md rounded-lg p-6" data-svelte-h="svelte-bl2kba"><h2 class="font-June text-4xl">Skills</h2> <ul class="font-Hatch font-light text-xl flex flex-col gap-5"><li>TypeScript</li> <li>React</li> <li>Tailwind CSS</li> <li>Web Accessibility</li> <li>GSAP</li> <li>UX/UI Design</li> <li>Responsive Web Design</li> <li>Jotai</li> <li>Mobile-First Development</li> <li>Framer Motion</li> <li>Atomic Design System</li> <li>GraphQL</li> <li>Svelte</li></ul></div>`;
-});
-const WorkSection = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  let { link } = $$props;
-  let { svg } = $$props;
-  let { title } = $$props;
-  let { date } = $$props;
-  let { description } = $$props;
-  if ($$props.link === void 0 && $$bindings.link && link !== void 0)
-    $$bindings.link(link);
-  if ($$props.svg === void 0 && $$bindings.svg && svg !== void 0)
-    $$bindings.svg(svg);
-  if ($$props.title === void 0 && $$bindings.title && title !== void 0)
-    $$bindings.title(title);
-  if ($$props.date === void 0 && $$bindings.date && date !== void 0)
-    $$bindings.date(date);
-  if ($$props.description === void 0 && $$bindings.description && description !== void 0)
-    $$bindings.description(description);
-  return `<div class="flex gap-6"><a${add_attribute("href", link, 0)} target="_blank"><div class="h-16 w-16 bg-primary-700 dark:bg-secondary-500 flex items-center justify-center rounded-md shadow-light-icon shadow-primary-500 dark:shadow-secondary-700"> <img${add_attribute("src", svg, 0)} aria-hidden class="h-8 w-auto"></div></a> <div class="flex flex-col gap-2"><div class="flex flex-col"><a${add_attribute("href", link, 0)} target="_blank"><h4 class="font-Hatch font-semibold text-xl tracking-wide">${escape(title)}</h4></a> <p class="uppercase font-Hatch text-sm">${escape(date)}</p></div> <p class="font-Hatch font-light">${escape(description)}</p></div></div>`;
-});
-const Work = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<div id="work-tile" class="flex flex-col md:gap-6 gap-4 md:p-12 p-6 md:col-span-9 col-span-1 md:col-start-4 md:row-span-7 bg-primary-300 dark:bg-secondary-700 shadow-md rounded-lg"><h2 class="font-June md:text-6xl text-4xl" data-svelte-h="svelte-6k8ji1">Work</h2> <div class="flex flex-col md:gap-6 gap-3"><h3 class="font-Hatch md:text-3xl text-2xl font-bold" data-svelte-h="svelte-g0njy1">Professional Experience</h3> ${validate_component(WorkSection, "WorkSection").$$render(
-    $$result,
-    {
-      link: "https://lifecloud.com/",
-      svg: "/svg/LifeCloudLogo.svg",
-      title: "LifeCloud",
-      date: "March 2023 - Present",
-      description: "A platform to organize your important documents and financial assets to make life easier for your loved ones when you pass."
-    },
-    {},
-    {}
-  )} ${validate_component(WorkSection, "WorkSection").$$render(
-    $$result,
-    {
-      link: "https://www.intern.house/",
-      svg: "/svg/InternHouseLogo.svg",
-      title: "Intern.House",
-      date: "April 2022 - March 2023",
-      description: "A startup specializing in helping tech interns find flexible, shared housing in Austin."
-    },
-    {},
-    {}
-  )}</div> <div class="flex flex-col md:gap-6 gap-3"><h3 class="font-Hatch md:text-3xl text-2xl font-bold" data-svelte-h="svelte-1nz89fq">Projects</h3> ${validate_component(WorkSection, "WorkSection").$$render(
-    $$result,
-    {
-      link: "https://www.lightql.com/",
-      svg: "/svg/LightQLLogo.svg",
-      title: "LightQL",
-      date: "2022",
-      description: "An Open Source Project composed of a lightweight client-side caching library for GraphQL, similar to Apollo Client."
+      class: "text-myWhite dark:text-myBlack text-6xl relative z-20"
     },
     {},
     {}
   )}</div></div>`;
 });
-const Contact = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-  return `<div id="contact-tile" class="md:col-span-12 h-fit p-6 md:row-span-4 bg-light-pink dark:bg-dark-pink bg-cover bg-no-repeat rounded-lg shadow-md" data-svelte-h="svelte-slrjm5"><h2 id="contact-title" class="font-June md:text-5xl text-4xl text-center">Hey there!</h2> <p class="font-Hatch font-light text-2xl md:w-7/12 md:leading-loose leading-relaxed text-center md:text-start">I would love to connect! Feel free to <a class="underline text-tertiary-700 dark:text-tertiary-300 font-medium hover:font-semibold" href="mailto:cassidyrose56@gmail.com">send a me a message</a> at cassidyrose56@gmail.com, or shoot me a message on social media.</p></div>`;
+const LinkedIn = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<div id="sm-tile" class="relative w-full group md:col-span-2 col-start-2 lg:row-start-1 md:col-start-9 md:row-span-2"><a href="https://www.linkedin.com/in/cassidy-r-johnson/" target="_blank" class="block absolute inset-0 z-10" data-svelte-h="svelte-15t31sx"><span class="sr-only">Link to Cassidy&#39;s LinkedIn</span></a> <div class="relative flex bg-tertiary-700 dark:bg-myWhite justify-around items-center h-full md:shadow-md rounded-lg md:p-4"><div class="absolute inset-0 bg-tertiary-700 dark:bg-myWhite rounded-lg blur-sm opacity-75 group-hover:bg-opacity-100 group-hover:blur-md group-hover:duration-200 transition duration-1000"></div> ${validate_component(Icon, "Icon").$$render(
+    $$result,
+    {
+      icon: "bxl:linkedin-square",
+      class: "text-myWhite dark:text-tertiary-700 text-6xl relative z-20"
+    },
+    {},
+    {}
+  )}</div></div>`;
+});
+const Medium = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<div id="sm-tile" class="relative group w-full md:col-span-2 col-start-3 lg:row-start-1 md:col-start-11 md:row-span-2"><a href="https://medium.com/@cassidyrose56/" target="_blank" class="block absolute inset-0 z-10" data-svelte-h="svelte-hznmmf"><span class="sr-only">Link to Cassidy&#39;s Medium</span></a> <div class="relative flex bg-myBlack dark:bg-myWhite justify-around items-center h-full md:shadow-md rounded-lg md:p-4"><div class="absolute inset-0 bg-myBlack dark:bg-myWhite rounded-lg blur-sm opacity-75 transition duration-1000"></div> ${validate_component(Icon, "Icon").$$render(
+    $$result,
+    {
+      icon: "bxl:medium",
+      class: "text-myWhite dark:text-myBlack text-6xl relative z-20"
+    },
+    {},
+    {}
+  )}</div></div>`;
+});
+const css = {
+  code: "#theme-toggle.svelte-1rhsz9i+label.svelte-1rhsz9i{display:inline-block;height:3rem;width:3rem;cursor:pointer;border-radius:9999px;transition-duration:300ms;--tw-content:'';content:var(--tw-content)\n}#theme-toggle.svelte-1rhsz9i+label.svelte-1rhsz9i:focus-visible{border-width:2px;border-style:solid;--tw-border-opacity:1;border-color:rgb(255 153 102 / var(--tw-border-opacity))\n}#theme-toggle.svelte-1rhsz9i:not(:checked)+label.svelte-1rhsz9i{--tw-bg-opacity:1;background-color:rgb(255 153 102 / var(--tw-bg-opacity))\n}#theme-toggle.svelte-1rhsz9i:checked+label.svelte-1rhsz9i{background-color:transparent;box-shadow:inset -18px -16px 1px 1px #ddd\n}",
+  map: `{"version":3,"file":"ThemeSwitch.svelte","sources":["ThemeSwitch.svelte"],"sourcesContent":["<script lang=\\"ts\\">import { browser } from \\"$app/environment\\";\\nlet darkMode = true;\\nconst handleSwitchDarkMode = () => {\\n  darkMode = !darkMode;\\n  localStorage.setItem(\\"theme\\", darkMode ? \\"dark\\" : \\"light\\");\\n  darkMode ? document.documentElement.classList.add(\\"dark\\") : document.documentElement.classList.remove(\\"dark\\");\\n  window.dispatchEvent(new CustomEvent(\\"dark-mode-toggle\\", { detail: darkMode }));\\n};\\nif (browser) {\\n  if (localStorage.theme === \\"dark\\" || !(\\"theme\\" in localStorage) && window.matchMedia(\\"(prefers-color-scheme: dark)\\").matches) {\\n    document.documentElement.classList.add(\\"dark\\");\\n    darkMode = true;\\n  } else {\\n    document.documentElement.classList.remove(\\"dark\\");\\n    darkMode = false;\\n  }\\n}\\n<\/script>\\n  \\n  <div class=\\"w-fit h-fit relative\\">\\n    <input checked={darkMode} tabindex=\\"0\\" on:click={handleSwitchDarkMode} type=\\"checkbox\\" id=\\"theme-toggle\\" class=\\"sr-only\\" />\\n    <label for=\\"theme-toggle\\" class=\\"block\\"><span class=\\"text-[0]\\">Toggle Dark Mode</span></label>\\n  </div>\\n\\n  <style lang=\\"postcss\\">\\n    #theme-toggle + label {\\n        display: inline-block;\\n        height: 3rem;\\n        width: 3rem;\\n        cursor: pointer;\\n        border-radius: 9999px;\\n        transition-duration: 300ms;\\n        --tw-content: '';\\n        content: var(--tw-content)\\n}\\n\\n#theme-toggle + label:focus-visible {\\n        border-width: 2px;\\n        border-style: solid;\\n        --tw-border-opacity: 1;\\n        border-color: rgb(255 153 102 / var(--tw-border-opacity))\\n}\\n\\n    #theme-toggle:not(:checked) + label {\\n        --tw-bg-opacity: 1;\\n        background-color: rgb(255 153 102 / var(--tw-bg-opacity))\\n}\\n\\n    #theme-toggle:checked + label {\\n        background-color: transparent;\\n        box-shadow: inset -18px -16px 1px 1px #ddd\\n}\\n</style>"],"names":[],"mappings":"AAyBI,4BAAa,CAAG,oBAAM,CAClB,OAAO,CAAE,YAAY,CACrB,MAAM,CAAE,IAAI,CACZ,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,OAAO,CACf,aAAa,CAAE,MAAM,CACrB,mBAAmB,CAAE,KAAK,CAC1B,YAAY,CAAE,EAAE,CAChB,OAAO,CAAE,IAAI,YAAY,CAAC;AAClC,CAEA,4BAAa,CAAG,oBAAK,cAAe,CAC5B,YAAY,CAAE,GAAG,CACjB,YAAY,CAAE,KAAK,CACnB,mBAAmB,CAAE,CAAC,CACtB,YAAY,CAAE,IAAI,GAAG,CAAC,GAAG,CAAC,GAAG,CAAC,CAAC,CAAC,IAAI,mBAAmB,CAAC,CAAC;AACjE,CAEI,4BAAa,KAAK,QAAQ,CAAC,CAAG,oBAAM,CAChC,eAAe,CAAE,CAAC,CAClB,gBAAgB,CAAE,IAAI,GAAG,CAAC,GAAG,CAAC,GAAG,CAAC,CAAC,CAAC,IAAI,eAAe,CAAC,CAAC;AACjE,CAEI,4BAAa,QAAQ,CAAG,oBAAM,CAC1B,gBAAgB,CAAE,WAAW,CAC7B,UAAU,CAAE,KAAK,CAAC,KAAK,CAAC,KAAK,CAAC,GAAG,CAAC,GAAG,CAAC,IAAI;AAClD"}`
+};
+const ThemeSwitch = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  $$result.css.add(css);
+  return `<div class="w-fit h-fit relative"><input ${"checked"} tabindex="0" type="checkbox" id="theme-toggle" class="sr-only svelte-1rhsz9i"> <label for="theme-toggle" class="block svelte-1rhsz9i" data-svelte-h="svelte-7e66eh"><span class="text-[0]">Toggle Dark Mode</span></label> </div>`;
+});
+const ThemeSwitch_1 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  return `<div id="theme-tile" class="h-full relative group md:col-span-6 md:row-span-2 col-span-3 md:row-start-3 md:col-start-7"><div class="absolute inset-0 bg-secondary dark:bg-tertiary-700 rounded-lg blur-sm opacity-75 group-hover:bg-opacity-100 group-hover:blur-md group-hover:duration-200 transition duration-1000"></div> <div class="relative flex gap-2 w-full py-8 bg-secondary dark:bg-tertiary-700 justify-around items-center h-full md:shadow-md rounded-lg md:p-4">${validate_component(ThemeSwitch, "ThemeSwitch").$$render($$result, {}, {}, {})}</div></div>`;
 });
 const Page = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   gsap.timeline({ defaults: { opacity: 0, ease: "back" } });
-  return `<div id="pageContent" class="invisible min-h-screen w-screen grid md:grid-cols-12 grid-cols-1 md:grid-rows-[10] gap-4 p-8">${validate_component(Sm, "SMTile").$$render($$result, {}, {}, {})} ${validate_component(Title_toggle, "TitleToggle").$$render($$result, {}, {}, {})} ${validate_component(Desc, "DescTile").$$render($$result, {}, {}, {})} ${validate_component(Work, "WorkTile").$$render($$result, {}, {}, {})} ${validate_component(Skillz, "SkillzTile").$$render($$result, {}, {}, {})}  ${validate_component(Contact, "ContactTile").$$render($$result, {}, {}, {})} </div>`;
+  return `<div class="md:px-[12vw] pb-12">${validate_component(Header, "Header").$$render($$result, {}, {}, {})} <div id="pageContent" class="invisible min-h-screen grid md:grid-cols-12 grid-cols-3 md:grid-rows-[10] gap-8 p-8 justify-between">${validate_component(Desc, "DescTile").$$render($$result, {}, {}, {})} ${validate_component(Github, "GithubTile").$$render($$result, {}, {}, {})} ${validate_component(LinkedIn, "LinkedInTile").$$render($$result, {}, {}, {})} ${validate_component(Medium, "MediumTile").$$render($$result, {}, {}, {})} ${validate_component(ThemeSwitch_1, "ThemeSwitch").$$render($$result, {}, {}, {})} ${validate_component(Skillz, "SkillzTile").$$render($$result, {}, {}, {})} ${validate_component(Work, "WorkTile").$$render($$result, {}, {}, {})} ${validate_component(Contact, "ContactTile").$$render($$result, {}, {}, {})}</div></div>`;
 });
 export {
   Page as default
