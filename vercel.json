@@ -1,5 +1,5 @@
 {
-  "buildCommand": "cd apps/top-ten-tastes && pnpm build",
+  "buildCommand": "cd apps/top-ten-tastes && source .env && pnpm build",
   "outputDirectory": "apps/top-ten-tastes/dist",
   "routes": [
     { "src": "/toptentastes/(.*)", "dest": "/$1" }
