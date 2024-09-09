@@ -5,16 +5,8 @@ import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 const config = {
 	preprocess: vitePreprocess(),
 	kit: {
-		adapter: adapter({
-			// add Vercel Edge Network support
-			edge: true,
-			// specify the output directory
-			outDir: 'build'
-		}),
-		// Add this line to ensure proper path resolution
-		paths: {
-			base: ''
-		}
+		adapter: adapter(),
+		outDir: 'build'
 	}
 };
 
