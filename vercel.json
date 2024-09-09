@@ -1,4 +1,4 @@
 {
-  "buildCommand": "cd apps/cassidyiscoding2.0 && pnpm build",
-  "outputDirectory": "apps/cassidyiscoding2.0/build"
+  "buildCommand": "cd apps/top-ten-tastes && pnpm build",
+  "outputDirectory": "apps/top-ten-tastes/build"
 }
