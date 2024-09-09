@@ -18,7 +18,7 @@ importers:
         specifier: ^5.4.5
         version: 5.6.2
 
-  apps/cassidy-is-coding:
+  apps/cassidyiscoding2.0:
     dependencies:
       '@sveltejs/adapter-auto':
         specifier: ^3.2.0
