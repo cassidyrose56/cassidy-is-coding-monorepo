@@ -1,8 +1,8 @@
 {
     "rewrites": [
       {
-        "source": "/toptentastes/:path*",
-        "destination": "https://top-ten-tastes.vercel.app/:path*"
+        "source": "/(.*)",
+        "destination": "/index.html"
       }
     ]
   }
