@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+}
+
+.balloon-input {
+  @apply bg-white rounded border border-grey-300 text-secondary;
+  display: inline-block;
+  width: 80vw;
+  max-width: 300px;
+  min-width: 215px;
+  padding: 10px 15px;
+  font-family: "Work Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1;
+  outline: 0;
+  text-indent: 70px;
+  transition: all 0.3s ease-in-out;
+}
+
+.balloon-input::-webkit-input-placeholder {
+  color: #efefef;
+  text-indent: 0;
+  font-weight: 300;
+}
+
+.balloon-input + label {
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  padding: 5px 10px;
+  text-shadow: 0 1px 0 rgba(19, 74, 70, 0);
+  background: transparent;
+  transition: all 0.3s ease-in-out;
+  border-radius: 3px;
+}
+
+/* little arrow */
+.balloon-input + label:after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  margin-left: -6px;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 8px solid transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+.balloon-input:focus,
+.balloon-input:active {
+  @apply text-secondary-500;
+  text-indent: 0;
+  background: #fff;
+}
+
+.balloon-input:focus::-webkit-input-placeholder,
+.balloon-input:active::-webkit-input-placeholder {
+  color: #aaa;
+}
+
+.balloon-input:focus + label,
+.balloon-input:active + label {
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(19, 74, 70, 0.4);
+  @apply bg-secondary-500;
+  transform: translateY(-50px);
+}
+
+.balloon-input:focus + label:after,
+.balloon-input:active + label:after {
+  border-top: 8px solid #608066;
+}
