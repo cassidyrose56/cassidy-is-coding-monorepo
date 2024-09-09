@@ -1,7 +1,4 @@
 {
   "buildCommand": "cd apps/cassidyiscoding2.0 && pnpm build",
-  "outputDirectory": "apps/cassidyiscoding2.0/build",
-  "rewrites": [
-    { "source": "/toptentastes/:path*", "destination": "https://top-ten-tastes.vercel.app/:path*" }
-  ]
+  "outputDirectory": "apps/cassidyiscoding2.0/build"
 }
