@@ -1,0 +1,3 @@
+[submodule "apps/cassidy-is-coding"]
+	path = apps/cassidy-is-coding
+	url = https://github.com/cassidyrose56/cassidyiscoding2.0.git
