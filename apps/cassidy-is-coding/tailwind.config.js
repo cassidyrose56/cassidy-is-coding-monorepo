@@ -16,7 +16,8 @@ module.exports = {
       fontSize: {
         'h1Clamp': 'clamp(40px, 8vw, 80px)',
         'h2Clamp': 'clamp(32px, 8vw, 64px)',
-        'pClamp': 'clamp(1rem, 5vw, 1.5rem)'
+        'lgPClamp': 'clamp(1rem, 5vw, 1.5rem)',
+        'smPClamp': 'clamp(1rem, 3vw, 1.25rem)'
       },
       colors: {
         transparent: 'transparent',

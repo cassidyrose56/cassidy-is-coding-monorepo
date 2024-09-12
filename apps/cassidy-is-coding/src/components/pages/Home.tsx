@@ -5,10 +5,10 @@ const Home = () => {
       className="flex flex-col items-center text-center h-screen"
     >
       <div className="flex flex-col sm:gap-6 gap-4 items-center text-center w-4/5">
-        <h1 className="font-title font-semibold w-fit text-h1Clamp sm:text-nowrap">
+        <h1 className="font-title font-medium w-fit text-h1Clamp sm:text-nowrap">
           Hi there, I'm Cassidy
         </h1>
-        <p className="font-body font-extralight text-pClamp">
+        <p className="font-body font-extralight text-lgPClamp">
           I’m a software engineer who loves creating fun, <wbr /> human-centric digital
           experiences. <br />
           Currently, I’m building an engaging and accessible product at{" "}
@@ -16,7 +16,7 @@ const Home = () => {
             href="https://lifecloud.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-secondary-700 font-medium cursor-pointer hover:underline hover:font-semibold"
+            className="text-secondary-700 font-medium cursor-pointer hover:underline hover:font-semibold transition-all duration-300"
           >
             LifeCloud
           </a>

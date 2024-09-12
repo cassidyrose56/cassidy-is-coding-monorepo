@@ -11,8 +11,8 @@ const Contact = () => {
     >
       <div className="w-fit flex flex-col items-center justify-center gap-12 text-center">
         <div className="flex flex-col items-center justify-center gap-5 text-center lg:w-1/3 md:w-3/5 w-4/5">
-          <h2 className="font-title font-semibold text-h2Clamp">Say hello!</h2>
-          <p className="font-body font-extralight text-pClamp">
+          <h2 className="font-title font-medium text-h2Clamp">Say hello!</h2>
+          <p className="font-body font-extralight text-lgPClamp">
             I love cheese, especially camembert de normandie babybel. Stilton
             cheesy grin ricotta queso cheesecake cow cheese triangles when the
             cheese comes out everybody's happy.
