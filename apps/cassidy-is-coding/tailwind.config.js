@@ -14,10 +14,11 @@ module.exports = {
         body: ['Urbanist', 'sans-serif']
       },
       fontSize: {
-        'h1Clamp': 'clamp(40px, 8vw, 80px)',
+        'h1Clamp': 'clamp(40px, 8vw, 96px)',
         'h2Clamp': 'clamp(32px, 8vw, 64px)',
         'lgPClamp': 'clamp(1rem, 5vw, 1.5rem)',
-        'smPClamp': 'clamp(1rem, 3vw, 1.25rem)'
+        'smPClamp': 'clamp(1rem, 3vw, 1.25rem)',
+        'xsPClamp': 'clamp(0.875rem, 2vw, 1rem)'
       },
       colors: {
         transparent: 'transparent',
