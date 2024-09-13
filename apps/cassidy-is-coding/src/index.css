@@ -2,3 +2,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .section-title {
+        @apply text-h2Clamp font-title font-medium leading-none;
+    }
+
+    .paragraph {
+        @apply text-smPClamp font-body font-extralight;
+    }
+}
+
+:root {
+    @apply bg-white;
+}

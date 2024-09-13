@@ -1,4 +1,3 @@
-import './App.css'
 import About from './components/pages/About'
 import Contact from './components/pages/Contact'
 import Experience from './components/pages/Experience'

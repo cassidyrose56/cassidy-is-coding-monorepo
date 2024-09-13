@@ -7,8 +7,8 @@ const About = () => {
         <img src={squareHeadshot} alt="Cassidy" className="size-2/5" />
         <div className="flex flex-col gap-8 md:items-end items-center md:text-end text-center md:w-1/2 w-full">
           <div className="flex flex-col gap-4">
-            <h2 className="text-h2Clamp font-title font-medium leading-none">About Me</h2>
-            <p className="text-smPClamp font-body font-extralight">
+            <h2 className="section-title">About Me</h2>
+            <p className="paragraph">
               Say cheese cheese strings gouda. Pepper jack stinking bishop swiss
               caerphilly feta cut the cheese danish fontina cottage cheese.
               Cheesy grin cheese slices parmesan cottage cheese ricotta danish
