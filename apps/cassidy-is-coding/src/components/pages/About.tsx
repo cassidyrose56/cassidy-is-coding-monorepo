@@ -2,10 +2,10 @@ import squareHeadshot from "../../assets/squareHeadshot.jpeg";
 import dotDivider from "../../assets/dotDivider.svg";
 const About = () => {
   return (
-    <section id="about" className="flex items-center md:justify-end justify-center h-screen md:px-36">
-      <div className="flex flex-col md:flex-row md:gap-24 gap-8 justify-end items-center md:w-11/12 w-4/5">
-        <img src={squareHeadshot} alt="Cassidy Headshot" className="size-2/5" />
-        <div className="flex flex-col gap-8 md:items-end items-center md:text-end text-center md:w-1/2 w-full">
+    <section id="about" className="flex items-center lg:justify-end justify-center h-screen lg:px-28">
+      <div className="flex flex-col lg:flex-row lg:gap-24 gap-8 justify-end items-center lg:w-11/12 w-4/5">
+        <img src={squareHeadshot} alt="Cassidy Headshot" className="size-1/3" />
+        <div className="flex flex-col gap-8 lg:items-end items-center lg:text-end text-center lg:w-4/5 w-full">
           <div className="flex flex-col gap-4">
             <h2 className="section-title">About Me</h2>
             <p className="paragraph">

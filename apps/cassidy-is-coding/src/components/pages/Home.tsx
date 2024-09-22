@@ -25,7 +25,8 @@ const Home = () => {
           , a highly secure SaaS platform for estate planning.
         </p>
       </div>
-      <Divider color="bg-primary-500" className="w-4/5" />
+      <div className="flex flex-col lg:gap-12 gap-8 items-center w-full">
+        <Divider color="bg-primary-500" className="w-4/5" />
       <a
         aria-label="Scroll down"
         href={`#about`}
@@ -45,6 +46,8 @@ const Home = () => {
             strokeLinejoin="round" d="m600 365.26c10.359 0 18.75-8.3906 18.75-18.75v-108c0-10.359-8.3906-18.75-18.75-18.75s-18.75 8.3906-18.75 18.75v108c0 10.359 8.3438 18.75 18.75 18.75z" />
         </svg>
       </a>
+      </div>
+      
     </div>
   );
 };

@@ -3,7 +3,7 @@ import ExperienceTile from "../organisms/ExperienceTile"
 
 const Experience = () => {
   return (
-    <section id="experience" className='flex items-center md:justify-start justify-center h-screen md:px-36 w-full'>
+    <section id="experience" className='flex items-center md:justify-start justify-center min-h-screen h-fit md:px-36 w-full'>
       <div className="flex flex-col md:items-start justify-center items-center gap-8 md:w-5/6 w-full">
         <h2 className="section-title text-center md:text-left">Experience</h2>
         {experiences.map((experience, index) => (
