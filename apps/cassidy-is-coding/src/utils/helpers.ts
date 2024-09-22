@@ -1,4 +1,4 @@
-import { Experience } from "./types";
+import { Experience, Project } from "./types";
 
 export const experiences: Experience[] = [
     {
@@ -36,3 +36,20 @@ export const experiences: Experience[] = [
         url: 'https://foundcom.org',
     },
   ];
+
+export const projects: Project[] = [
+    {
+        name: 'TopTenTastes',
+        description: 'Have you ever been frustrated by the amount of choices you’re given to choose a restaurant in Google Maps? This app will make it easier for you, narrowing down the top ten best restaurants in your area!',
+        technologies: 'React, TypeScript, Google Maps API, Tailwind, Vite, Vitest',
+        url: 'https://top-ten-tastes.vercel.app/',
+        image: '/topTenTastes.png',
+    },
+    {
+        name: 'LightQL',
+        description: 'A lightspeed, lightweight client-side cache for GraphQL, caching GraphQL queries using Local Forage and IndexedDB to persist data between sessions and reduce page load times.',
+        technologies: 'React, TypeScript, Node, Express, GraphQL, Jest',
+        url: 'https://lightql.com/',
+        image: '/lightQL.png',
+    },
+];

@@ -5,3 +5,11 @@ export type Experience = {
     description: string[];
     url: string;
 }
+
+export type Project = {
+    name: string;
+    description: string;
+    technologies: string;
+    url: string;
+    image: string;
+}

@@ -19,7 +19,7 @@ const Nav = () => {
   ]
 
   return (
-    <nav className="sticky top-0 p-4 w-full">
+    <nav className="absolute top-0 left-0 p-4 w-full z-50 bg-white bg-opacity-90">
       <div className="sm:hidden">
         <button onClick={toggleMenu} className="text-2xl">
           ☰

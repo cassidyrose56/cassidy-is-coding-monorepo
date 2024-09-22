@@ -26,7 +26,7 @@ gsap.registerPlugin(useGSAP,Flip,ScrollTrigger,Observer,ScrollToPlugin,Draggable
 
 const App = () => {
   return (
-    <div className='bg-white text-primary-900 flex flex-col items-center w-screen'>
+    <div className='bg-white text-primary-900 w-screen'>
       <Nav />
       <Home />
       <About />

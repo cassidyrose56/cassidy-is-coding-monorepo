@@ -31,8 +31,8 @@ const ExperienceTile: React.FC<ExperienceTileProps> = ({ number, company, title,
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleToggle}
     >
-      <div className="flex flex-col md:flex-row items-center justify-between">
-        <div className="flex items-center gap-8">
+      <div className="flex flex-col lg:flex-row gap-3 lg:gap-0 items-start lg:items-center justify-between">
+        <div className="flex items-center gap-4 lg:gap-8">
           <div className="w-12 h-12 border border-solid border-primary-900 group-hover:border-white group-hover:bg-primary-900 text-primary-900 group-hover:text-white rounded-full flex items-center justify-center transition-all duration-300">
             <span className="font-title font-semibold text-lg leading-none">{number}</span>
           </div>
@@ -41,11 +41,11 @@ const ExperienceTile: React.FC<ExperienceTileProps> = ({ number, company, title,
             <p className="text-sm font-body text-nowrap font-light text-primary-900 group-hover:text-white">{title}</p>
           </div>
         </div>
-        <div className="flex flex-wrap gap-2 justify-center md:justify-end">
+        <div className="flex flex-wrap gap-2 justify-start lg:justify-end">
           {skills.map((skill, index) => (
             <p 
               key={index} 
-              className="bg-white group-hover:bg-primary-900 font-body italic text-primary-900 group-hover:text-white px-3 py-1 rounded-full md:text-lg text-sm border border-primary-900 group-hover:border-white"
+              className="bg-white group-hover:bg-primary-900 font-body italic text-primary-900 group-hover:text-white px-3 py-1 rounded-full lg:text-base md:text-sm text-xs border border-primary-900 group-hover:border-white"
             >
               {skill}
             </p>
@@ -58,7 +58,7 @@ const ExperienceTile: React.FC<ExperienceTileProps> = ({ number, company, title,
           {description.map((paragraph, index) => (
             <div key={index} className="flex items-start gap-2">
               <img src={point} alt="point" className="w-4 h-4 mt-1.5" />
-              <p className="font-body text-white md:text-base text-sm font-extralight leading-6">{paragraph}</p>
+              <p className="font-body text-white lg:text-base text-sm font-extralight leading-6">{paragraph}</p>
             </div>
           ))}
         </div>
