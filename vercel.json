@@ -1,5 +1,5 @@
 {
   "buildCommand": "pnpm build",
-  "outputDirectory": "apps/cassidy-is-coding/dist",
+  "outputDirectory": "apps/cassidy-is-coding/index.html",
   "rewrites": [{ "source": "/toptentastes", "destination": "apps/top-ten-tastes/index.html" }]
 }
