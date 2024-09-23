@@ -1,7 +1,5 @@
 {
-  "buildCommand": "cd apps/top-ten-tastes && pnpm build",
-  "outputDirectory": "apps/top-ten-tastes/dist",
-  "routes": [
-    { "src": "/toptentastes/(.*)", "dest": "/$1" }
-  ]
+  "buildCommand": "pnpm build",
+  "outputDirectory": "apps/cassidy-is-coding/dist",
+  "rewrites": [{ "source": "/toptentastes", "destination": "apps/toptentastes/dist" }]
 }
