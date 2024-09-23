@@ -44,6 +44,7 @@ export const projects: Project[] = [
         technologies: 'React, TypeScript, Google Maps API, Tailwind, Vite, Vitest',
         url: 'https://top-ten-tastes.vercel.app/',
         image: '/topTenTastes.png',
+        githubUrl: 'https://github.com/cassidyrose56/top-ten-tastes',
     },
     {
         name: 'LightQL',
@@ -51,5 +52,6 @@ export const projects: Project[] = [
         technologies: 'React, TypeScript, Node, Express, GraphQL, Jest',
         url: 'https://lightql.com/',
         image: '/lightQL.png',
+        githubUrl: 'https://github.com/oslabs-beta/LightQL',
     },
 ];

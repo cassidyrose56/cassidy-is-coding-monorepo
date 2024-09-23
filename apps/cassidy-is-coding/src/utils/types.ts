@@ -12,4 +12,5 @@ export type Project = {
     technologies: string;
     url: string;
     image: string;
+    githubUrl: string;
 }

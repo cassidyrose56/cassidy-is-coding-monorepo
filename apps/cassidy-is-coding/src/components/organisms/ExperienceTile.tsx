@@ -58,7 +58,7 @@ const ExperienceTile: React.FC<ExperienceTileProps> = ({
   return (
     <div
       ref={tileRef}
-      className="group border border-primary-900 border-solid lg:py-6 lg:px-8 py-4 px-6 flex flex-col md:w-full w-4/5 cursor-pointer"
+      className="group border border-primary-900 border-solid lg:py-6 lg:px-8 py-4 px-6 flex flex-col md:w-full w-4/5 cursor-default"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleToggle}
@@ -88,7 +88,7 @@ const ExperienceTile: React.FC<ExperienceTileProps> = ({
           {skills.map((skill, index) => (
             <p
               key={index}
-              className="bg-white bg-transparent font-body italic text-primary-900 group-hover:text-white px-3 py-1 rounded-full lg:text-base md:text-sm text-xs border border-primary-900 group-hover:border-white"
+              className="bg-transparent font-body italic text-primary-900 group-hover:text-white px-3 py-1 rounded-full lg:text-base md:text-sm text-xs border border-primary-900 group-hover:border-white"
             >
               {skill}
             </p>

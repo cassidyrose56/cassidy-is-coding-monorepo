@@ -1,4 +1,5 @@
 import React from "react";
+import githubLogo from "../../assets/githubLogo.svg";
 
 type ProjectShowcaseProps = {
   title: string;
@@ -7,6 +8,7 @@ type ProjectShowcaseProps = {
   imageSrc: string;
   url: string;
   technologies: string;
+  githubUrl: string;
 };
 
 const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
@@ -16,25 +18,25 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
   imageSrc,
   url,
   technologies,
+  githubUrl,
 }) => {
   const isEven = (num: number) => num % 2 === 0;
   return (
     <div
-      className={`w-full max-w-5xl grid gap-4 grid-cols-12 grid-rows-8 ${isEven(index) ? "lg:flex-row-reverse self-start" : "self-end"}`}
+      className={`w-full max-w-5xl flex flex-col lg:flex-row gap-4 ${
+        isEven(index) ? "lg:flex-row-reverse" : ""
+      }`}
     >
-      <div
-        className={`col-span-12 lg:col-span-6 ${isEven(index) ? "lg:col-start-6" : "lg:col-start-1"} row-span-full`}
-      >
+      <div className="w-full lg:w-1/2 flex justify-center items-center">
         <img
           src={imageSrc}
           alt={`${title} screenshot`}
-          className="w-full h-auto object-cover"
+          className="lg:w-full md:w-3/5 w-full h-auto object-cover"
         />
       </div>
-      <div
-        className={`col-span-12 lg:col-span-6 ${isEven(index) ? "lg:col-start-1" : "lg:col-start-6"} row-span-full bg-secondary-900 bg-opacity-10 p-6 self-center flex flex-col gap-2`}
-      >
-        <a
+      <div className={`lg:w-5/12 md:w-3/5 w-full self-center flex flex-col gap-2 justify-center text-center ${isEven(index) ? "lg:text-left" : "lg:text-right"}`}>
+        <div className={`flex flex-row ${!isEven(index) ? "lg:flex-row-reverse" : ""} justify-center lg:justify-between items-end gap-2`}>
+          <a
           href={url}
           target="_blank"
           rel="noopener noreferrer"
@@ -42,6 +44,17 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
         >
           {title}
         </a>
+        <a href={githubUrl} target="_blank" rel="noopener noreferrer">
+          <img
+            src={githubLogo}
+            className="logo"
+            alt="Github logo"
+            height="32"
+            width="32"
+          ></img>
+        </a>
+        </div>
+        
         <p className="text-primary-900 text-xsPClamp font-extralight font-body">
           {description}
         </p>
