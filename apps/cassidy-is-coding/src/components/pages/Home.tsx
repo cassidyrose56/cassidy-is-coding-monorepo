@@ -1,19 +1,33 @@
-import { useCallback } from "react";
-import { gsap } from "gsap";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import Divider from "../atoms/Divider";
 
 gsap.registerPlugin(ScrollToPlugin);
 
 const Home = () => {
-  const handleScrollClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    gsap.to(window, {
-      duration: 1,
-      scrollTo: "#about",
-      ease: "power2.inOut",
-    });
-  }, []);
+  const scrollButtonRef = useRef<HTMLAnchorElement>(null);
+
+  useGSAP(() => {
+    if (scrollButtonRef.current) {
+      scrollButtonRef.current.addEventListener('click', (e) => {
+        e.preventDefault();
+        gsap.to(window, {
+          duration: 1,
+          scrollTo: "#about",
+          ease: "power2.inOut",
+        });
+      });
+    }
+
+    // Cleanup function
+    return () => {
+      if (scrollButtonRef.current) {
+        scrollButtonRef.current.removeEventListener('click', () => {});
+      }
+    };
+  }, []); // Empty dependency array as the target (#about) doesn't change
 
   return (
     <div
@@ -42,9 +56,9 @@ const Home = () => {
       <div className="flex flex-col lg:gap-12 gap-8 items-center w-full">
         <Divider color="bg-primary-500" className="w-4/5" />
         <a
+          ref={scrollButtonRef}
           aria-label="Scroll down"
           href="#about"
-          onClick={handleScrollClick}
           className="md:w-32 md:h-32 w-16 h-16 rounded-full border-2 border-primary-700 text-primary-700 hover:text-primary-900 hover:border-primary-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2"
         >
           <svg

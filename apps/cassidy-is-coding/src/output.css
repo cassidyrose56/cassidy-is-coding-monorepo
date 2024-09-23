@@ -569,8 +569,8 @@ video {
   font-weight: 200;
 }
 
-.absolute{
-  position: absolute;
+.fixed{
+  position: fixed;
 }
 
 .left-0{
@@ -583,14 +583,6 @@ video {
 
 .z-50{
   z-index: 50;
-}
-
-.m-4{
-  margin: 1rem;
-}
-
-.m-6{
-  margin: 1.5rem;
 }
 
 .mx-auto{
@@ -689,20 +681,16 @@ video {
   width: 100vw;
 }
 
-.w-3\/5{
-  width: 60%;
-}
-
 .max-w-5xl{
   max-width: 64rem;
 }
 
-.cursor-pointer{
-  cursor: pointer;
-}
-
 .cursor-default{
   cursor: default;
+}
+
+.cursor-pointer{
+  cursor: pointer;
 }
 
 .flex-row{
@@ -797,10 +785,6 @@ video {
   border-radius: 0.5rem;
 }
 
-.rounded-none{
-  border-radius: 0px;
-}
-
 .border{
   border-width: 1px;
 }
@@ -833,11 +817,6 @@ video {
   background-color: rgb(54 89 63 / var(--tw-bg-opacity));
 }
 
-.bg-secondary-900{
-  --tw-bg-opacity: 1;
-  background-color: rgb(152 11 93 / var(--tw-bg-opacity));
-}
-
 .bg-transparent{
   background-color: transparent;
 }
@@ -847,16 +826,8 @@ video {
   background-color: rgb(255 242 241 / var(--tw-bg-opacity));
 }
 
-.bg-opacity-10{
-  --tw-bg-opacity: 0.1;
-}
-
 .bg-opacity-90{
   --tw-bg-opacity: 0.9;
-}
-
-.bg-opacity-20{
-  --tw-bg-opacity: 0.2;
 }
 
 .object-cover{
@@ -876,14 +847,14 @@ video {
   padding: 1.5rem;
 }
 
+.px-12{
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
 .px-3{
   padding-left: 0.75rem;
   padding-right: 0.75rem;
-}
-
-.px-52{
-  padding-left: 13rem;
-  padding-right: 13rem;
 }
 
 .px-6{
@@ -896,19 +867,14 @@ video {
   padding-bottom: 0.25rem;
 }
 
-.py-4{
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-}
-
-.px-12{
-  padding-left: 3rem;
-  padding-right: 3rem;
-}
-
 .py-12{
   padding-top: 3rem;
   padding-bottom: 3rem;
+}
+
+.py-4{
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .text-center{
@@ -1197,12 +1163,12 @@ video {
     width: 80%;
   }
 
-  .lg\:w-full{
-    width: 100%;
-  }
-
   .lg\:w-5\/12{
     width: 41.666667%;
+  }
+
+  .lg\:w-full{
+    width: 100%;
   }
 
   .lg\:flex-row{
@@ -1215,10 +1181,6 @@ video {
 
   .lg\:items-end{
     align-items: flex-end;
-  }
-
-  .lg\:justify-start{
-    justify-content: flex-start;
   }
 
   .lg\:justify-end{
@@ -1250,24 +1212,24 @@ video {
     padding-right: 7rem;
   }
 
-  .lg\:px-8{
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-
-  .lg\:py-6{
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-
   .lg\:px-52{
     padding-left: 13rem;
     padding-right: 13rem;
   }
 
+  .lg\:px-8{
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
   .lg\:py-0{
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+
+  .lg\:py-6{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
   .lg\:text-left{
