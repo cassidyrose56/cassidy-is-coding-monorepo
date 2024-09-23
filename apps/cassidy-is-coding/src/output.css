@@ -573,6 +573,18 @@ video {
   position: fixed;
 }
 
+.absolute{
+  position: absolute;
+}
+
+.relative{
+  position: relative;
+}
+
+.inset-0{
+  inset: 0px;
+}
+
 .left-0{
   left: 0px;
 }
@@ -583,6 +595,10 @@ video {
 
 .z-50{
   z-index: 50;
+}
+
+.z-10{
+  z-index: 10;
 }
 
 .mx-auto{
@@ -683,6 +699,16 @@ video {
 
 .max-w-5xl{
   max-width: 64rem;
+}
+
+.scale-0{
+  --tw-scale-x: 0;
+  --tw-scale-y: 0;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.transform{
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
 .cursor-default{
@@ -995,6 +1021,10 @@ video {
   text-underline-offset: 4px;
 }
 
+.opacity-50{
+  opacity: 0.5;
+}
+
 .transition-all{
   transition-property: all;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -1181,6 +1211,10 @@ video {
 
   .lg\:items-end{
     align-items: flex-end;
+  }
+
+  .lg\:items-center{
+    align-items: center;
   }
 
   .lg\:justify-end{

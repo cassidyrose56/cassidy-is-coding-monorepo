@@ -63,7 +63,7 @@ const ExperienceTile: React.FC<ExperienceTileProps> = ({
       onMouseLeave={() => setIsHovered(false)}
       onClick={handleToggle}
     >
-      <div className="flex flex-col lg:flex-row gap-3 lg:gap-0 self-center items-center justify-between">
+      <div className="flex flex-col lg:flex-row gap-3 lg:gap-0 items-start lg:items-center justify-between">
         <div className="flex items-center gap-4 lg:gap-8">
           <div className="w-12 h-12 border border-solid border-primary-900 group-hover:border-white bg-transparent text-primary-900 group-hover:text-white rounded-full flex items-center justify-center">
             <span className="font-title font-semibold text-lg leading-none">
